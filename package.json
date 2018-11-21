@@ -5,6 +5,15 @@
   "main": "index.js",
   "author": "Gahyun Suh",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "@babel/core": "^7.1.6",
+    "@babel/node": "^7.0.0",
+    "@babel/preset-env": "^7.1.6"
+  },
+  "scripts": {
+    "start": "nodemon --exec babel-node index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.6"
   }
 }
