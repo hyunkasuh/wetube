@@ -1,7 +1,7 @@
 import express from "express";
 import routes from "../routes";
-import { home, search, videos } from "../controllers/videoController";
-import { login, join, logout, users } from "../controllers/userController";
+import { home, search } from "../controllers/videoController";
+import { login, join, logout } from "../controllers/userController";
 
 const globalRouter = express.Router();
 
@@ -10,9 +10,6 @@ globalRouter.get(routes.search, search);
 globalRouter.get(routes.join, join);
 globalRouter.get(routes.login, login);
 globalRouter.get(routes.logout, logout);
-globalRouter.get(routes.logout, logout);
-globalRouter.get(routes.videos, videos);
-globalRouter.get(routes.users, users);
 
 
 // globalRouter.get(routes.home, (req, res) => res.send('Home'));
