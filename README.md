@@ -85,7 +85,7 @@ Model - View - Control, pattern = sexy structure
 ## Adding pages constructing the website...(on going)
 - [x] Search Controller
   - hanle in videoContoller, and templates.
-- [ ] Home
+- [x] Home
 - [x] Join (register) + social authentication
 - [x] Log In + social authentication
 - [ ] User Detail
@@ -97,7 +97,11 @@ Model - View - Control, pattern = sexy structure
 
 ⁉️ BAM? from KakaoTalk?
 
-#### Home
+##### Home 화면
 - Create a fake database called 'db.js'
   - video demo from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
 - mixin: HTML elements that is going to be repeated in many parts of our website
+
+##### Join controller
+##### Log in and User detail controllers
+##### Video detail, log out, Upload controllers and pages
