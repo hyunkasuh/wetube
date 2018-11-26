@@ -1,4 +1,4 @@
-import { videos } from "../db";
+// import { videos } from "../db";
 import routes from "../routes"; // don't need { }, since route has been 'export default'
 
 export const home = (req, res) => {

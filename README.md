@@ -94,14 +94,31 @@ Model - View - Control, pattern = sexy structure
 - [ ] Upload
 - [ ] Video Detail
 - [ ] Edit Video
-
 ⁉️ BAM? from KakaoTalk?
 
 ##### Home 화면
 - Create a fake database called 'db.js'
   - video demo from https://developer.mozilla.org/en-US/docs/Web/HTML/Element/video
 - mixin: HTML elements that is going to be repeated in many parts of our website
-
 ##### Join controller
 ##### Log in and User detail controllers
 ##### Video detail, log out, Upload controllers and pages
+
+## 목표!
+1. Do Database stuff
+2. Make it Publically functinal
+3. Make it pretty (CSS)
+4. Do User-part (Authentication)
+
+## MongoDB
+- MongoDB: No-SQL Database
+- mongoose: How we talk to MongoDB (by javascript)
+- When running `mongod`, 
+  - meet an error saying "exception in initAndListen: IllegalOperation: Attempted to create a lock file on aread-only directory: /data/db, terminating". 
+  - Below link gives a resolution for this: https://stackoverflow.com/questions/42446931/mongodb-exception-in-initandlisten-20-attempted-to-create-a-lock-file-on-a-rea 
+  ```
+  > sudo chown -R $USER /data/db
+  ```
+- Install **dotenv**, to keep my database secret, hide a key that should not be opened to public. (In logal host it shouldn't be a problem, what happens when I change it into a real-application) 
+  - .env 파일을 생성하고 configure
+  - .env 파일이 .gitignore에 포함됨을 확인!
