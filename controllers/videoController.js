@@ -1,10 +1,18 @@
 // import { videos } from "../db";
 import routes from "../routes"; // don't need { }, since route has been 'export default'
+import Video from "../models/Video";
 
-export const home = (req, res) => {
-    res.render("home", { pageTitle: "Home", videos: videos });
+export const home = async (req, res) => {
+    try {
+        const videos = await Video.find({});
+        res.render("home", { pageTitle: "Home", videos: videos });
+    } catch (error) {
+        console.log(error);
+        res.render("home", { pageTitle: "Home", videos: [] });
+    }
     // res.send("Home from controller...");
-}
+};
+
 export const search = (req, res) => {
     // const searchingBy = req.query.term;
     const { query: { term: searchingBy } } = req;
@@ -14,12 +22,18 @@ export const search = (req, res) => {
 export const getUpload = (req, res) =>
     res.render("upload", { pageTitle: "Upload" });
 
-export const postUpload = (req, res) => {
+export const postUpload = async (req, res) => {
     const {
-        body: { file, title, description }
+        body: { title, description },
+        file: { path }
     } = req;
-    // To Do: Upload save the video
-    res.redirect(routes.videoDetail(319872));
+    const newVideo = await Video.create({
+        fileUrl: path,
+        title: title,
+        description: description
+    });
+    console.log(newVideo);
+    res.redirect(routes.videoDetail(newVideo.id));
 };
 
 export const videoDetail = (req, res) =>
