@@ -15,7 +15,9 @@ export const home = async (req, res) => {
 
 export const search = (req, res) => {
     // const searchingBy = req.query.term;
-    const { query: { term: searchingBy } } = req;
+    const {
+        query: { term: searchingBy }
+    } = req;
     res.render("search", { pageTitle: "Search", searchingBy, videos });
 }
 
@@ -32,15 +34,24 @@ export const postUpload = async (req, res) => {
         title: title,
         description: description
     });
-    console.log(newVideo);
+    // console.log(newVideo);
     res.redirect(routes.videoDetail(newVideo.id));
 };
 
-export const videoDetail = (req, res) =>
-    res.render("videoDetail", { pageTitle: "Video Detail" });
-
+export const videoDetail = async (req, res) => {
+    const {
+        params: { id }
+    } = req;
+    try {
+        const video = await Video.findById(id); // function of Mongoose
+        res.render("videoDetail", { pageTitle: "Video Detail", video });
+        //routes 안에서 "/:id"로 정해줬으므로, grab the info from URL 일 때 id: ... 로 찍히게 됨. 
+    } catch (error) {
+        res.redirect(routes.home);
+    }
+}
 export const editVideo = (req, res) =>
-    res.render("editVideo", { pageTitle: "Edit Video" });
+    es.render("editVideo", { pageTitle: "Edit Video" });
 
 export const deleteVideo = (req, res) =>
     res.render("deleteVideo", { pageTitle: "Delete Video" });
