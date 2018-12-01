@@ -15,7 +15,8 @@ const app = express();
 // Midlewares ----------------------------------------------
 app.use(helmet());
 app.set("view engine", "pug");
-app.use("/uploads", express.static("uploads/"));
+app.use("/uploads", express.static("uploads"));
+app.use("/static", express.static("static"));
 // When somebody goes to a "/uploads", 
 //give him using express static, which is a built-in middleware to give files from a directory "uploads".
 // it doesn't look for controllers or views. it will just look for a file. 
