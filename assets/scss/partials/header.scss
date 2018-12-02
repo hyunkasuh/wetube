@@ -10,6 +10,10 @@
         grid-template-columns: repeat(3, 1fr);
         align-items: center;
         .header__column {
+            &:first-child {
+                display: flex;
+                align-items: center;
+            }
             i {
                 color: $red;
                 font-size: 40px;
@@ -41,14 +45,12 @@
                 width: 100%;
                 input {
                     width: 100%;
-                    font-size: 12px;
+                    font-size: 15px;
                     font-weight: 600;
                     color: $black;
                     border-radius: 5px;
                     padding: 7px 10px;
-                    border: 1px solid transparent;
                     background-color: #f1f2f3;
-                    transition: border-color 0.2 linear;
                     &::placeholder {
                         font-weight: 300;
                         color: rgba(0,0,0,0.5);
