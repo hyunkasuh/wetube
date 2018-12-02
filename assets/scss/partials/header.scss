@@ -1,0 +1,80 @@
+.header {
+    background-color: white;
+    margin-bottom: 50px;
+    .header__wrapper {
+        padding: 5px 0;
+        width: 100%;
+        margin: 0 auto;
+        max-width: 1000px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        .header__column {
+            i {
+                color: $red;
+                font-size: 40px;
+            }
+            span {
+                color: black;
+                font-size: 30px;
+                font-weight: 600;
+                letter-spacing: -1px;;
+                margin-left: 3px;
+            }
+            &:nth-child(2) {
+                width: 100%;
+                justify-self: center;
+            }
+            &:last-child {
+                justify-self: end;
+            }
+            ul {
+                display: flex;
+                color: $black;
+                font-weight: 600;
+                text-transform: uppercase;
+                li:not(:last-child) {
+                    margin-right: 10px;
+                }
+            }
+            form {
+                width: 100%;
+                input {
+                    width: 100%;
+                    font-size: 12px;
+                    font-weight: 600;
+                    color: $black;
+                    border-radius: 5px;
+                    padding: 7px 10px;
+                    border: 1px solid transparent;
+                    background-color: #f1f2f3;
+                    transition: border-color 0.2 linear;
+                    &::placeholder {
+                        font-weight: 300;
+                        color: rgba(0,0,0,0.5);
+                    }
+                }
+            }
+        }
+    }
+}
+// .logo-name {
+//     color: black;
+//     font-size: 23px;
+//     font-weight: 700;
+//     letter-spacing: -1px;;
+//     margin-left: 3px;
+// }
+// .search-bar input {
+//     width: 100%;
+//     font-size: 15px;
+//     padding: 5px 7px;
+//     border: 0;
+//     border: 1px solid transparent;
+//     background-color: #f1f2f3;
+//     transition: border-color 0.2 linear;
+// }
+// .serach-bar input:focus {
+//     outline: none;
+//     border-color: $dark-red;
+// }
