@@ -3,11 +3,13 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import bodyParser from "body-parser";
+import passport from "passport";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
 import routes from "./routes";
 import { localsMiddleware } from "./localsMiddleware";
+import "./passport";
 
 // Server --------------------------------------------------
 const app = express();
@@ -25,6 +27,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 app.use(localsMiddleware);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Routers (3)----------------------------------------------
 app.use(routes.home, globalRouter);
