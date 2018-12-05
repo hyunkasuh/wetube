@@ -10,7 +10,7 @@ header.header
                 input(type="text", placeholder="Search by term...", name="term")
 
         .header__column
-            if !user.isAuthenticated
+            if !user
                 ul
                     li
                         a(href=routes.join) Join
