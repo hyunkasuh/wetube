@@ -6,14 +6,14 @@ import {
     search
 } from "../controllers/videoController";
 import {
-    getLogin,
-    postLogin,
     getJoin,
+    getLogin,
     postJoin,
+    postLogin,
     logout,
     githubLogin,
-    githubCallback,
-    postGithubLogin
+    postGithubLogin,
+    getMe
 } from "../controllers/userController";
 import { onlyPublic, onlyPrivate } from "../localsMiddleware";
 
@@ -35,10 +35,12 @@ globalRouter.get(routes.githubCallback,
     passport.authenticate('github',
         {
             failureRedirect: '/login',
-            session: true
+            // session: true
         }),
     postGithubLogin
 );
+
+globalRouter.get(routes.me, onlyPrivate, getMe);
 
 
 // globalRouter.get(routes.home, (req, res) => res.send('Home'));

@@ -75,11 +75,17 @@ export const logout = (req, res) => {
     res.redirect(routes.home);
 }
 
-export const users = (req, res) =>
-    res.render("users", { pageTitle: "Users" });
+export const getMe = (req, res) => {
+    res.render("userDetail", { pageTitle: "User Detail", user: req.user });
+}
 export const editProfile = (req, res) =>
     res.render("editProfile", { pageTitle: "Edit Profile" });
-export const userDetail = (req, res) =>
-    res.render("userDetail", { pageTitle: "User Detail" });
+export const userDetail = (req, res) => {
+    try {
+        res.render("userDetail", { pageTitle: "User Detail" });
+    } catch (error) {
+        console.log(error);
+    }
+}
 export const changePassword = (req, res) =>
     res.render("changePassword", { pageTitle: "Change Password" });
